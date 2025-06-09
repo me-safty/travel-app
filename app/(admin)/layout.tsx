@@ -1,14 +1,12 @@
 import { ReactNode } from "react";
-import "./globals.css";
-import Providers from './providers';
 
 export default function RootLayout({ children }: {children:ReactNode}) {
   return (
     <html>
       <body>
-        <Providers>
+        <h1>Header</h1>
+        <h1>Sidbar</h1>
         {children}
-        </Providers>
       </body>
     </html>
   );
