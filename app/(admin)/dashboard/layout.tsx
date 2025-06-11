@@ -1,6 +1,17 @@
 import { ReactNode } from "react";
 
-export default function RootLayout({ children }: {children:ReactNode}) {
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth/auth-options";
+import { redirect } from "next/navigation";
+
+  
+
+export default async function RootLayout({ children }: {children:ReactNode}) {
+  const session = await getServerSession(authOptions);
+  
+  if (!session) {
+    redirect("/loginadmin");
+  }
   return (
     <html>
       <body>
