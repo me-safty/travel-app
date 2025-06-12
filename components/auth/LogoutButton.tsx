@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { FaSignOutAlt, FaSpinner } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+import { FaSpinner } from "react-icons/fa";
 import { signOut } from "next-auth/react";
+import { TbLogout2 } from "react-icons/tb";
 
 type LogoutButtonProps = {
   url?: string;
@@ -17,23 +17,21 @@ export default function LogoutButton({ url}: LogoutButtonProps) {
   };
 
   return (
-    <Button
+    <button
       onClick={handleLogout}
-      variant="outline"
-      className=" w-24 bg-red-600 text-white flex justify-center items-center gap-2"
+      className=" bg-none border-none text-red-500"
       disabled={isLoading}
     >
       {isLoading ? (
         <>
           <FaSpinner className="animate-spin" />
-          Logging out...
+          {/* Logging out... */}
         </>
       ) : (
         <>
-          <FaSignOutAlt />
-          Sign out
+          <TbLogout2 />
         </>
       )}
-    </Button>
+    </button>
   );
 }
