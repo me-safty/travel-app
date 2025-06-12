@@ -1,27 +1,12 @@
-import { LoginForm } from "@/components/auth/login-form"
-
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/lib/auth/auth-options";
-
-
-export default async function Login() {
-    
-  const session = await getServerSession(authOptions);
-
-  if (session) {
-    redirect("/home");
-  }
-
-    return (
-        <>
-            <img src="/assets/images/auth-img.webp"
-                 alt="Authentication Cover Image" 
-                 className=" object-cover  w-[100%] h-[100vh] absolute"
-            />
-            <div className="relative flex items-center justify-center h-screen z-10">
-                <LoginForm />
-            </div>
-        </>
-    )
+import LoginPage from "@/components/auth/LoginPage";
+import Link from "next/link";
+export default function Page() {
+  return (
+    <>
+      <Link className=" absolute z-20 px-6 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg  hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 "
+      href="/loginadmin">Admin Dashboard Login</Link>
+      
+      <LoginPage type="client" />
+    </>
+  )
 }
