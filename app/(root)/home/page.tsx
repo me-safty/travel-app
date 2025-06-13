@@ -1,10 +1,14 @@
-import React from 'react'
-import Header from '@/components/Header'
+import React from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 
 const page = () => {
   return (
-    <Header />
-  )
-}
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
+};
 
-export default page
+export default page;

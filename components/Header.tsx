@@ -29,14 +29,7 @@ export default function Header({
   return (
     <header
       className="
-          relative z-10
-          flex items-center
-          justify-between // Justify: space-between من Figma
-          max-w-[1440px] // Width: Fixed (1,440px) من Figma
-          mx-auto
-          h-full
-          px-[140px] // <--- هذا هو Padding Right 140px, Left 140px
-          py-[30px] // <--- هذا هو Padding Top 30px, Bottom 30px
+      fixed top-0 left-0 z-50 container w-full m-auto px-4 py-2 flex items-center justify-between
       "
     >
       {/* خلفية متدرجة مع تأثيرات خفيفة */}
@@ -92,8 +85,7 @@ export default function Header({
             AB
           </AvatarFallback>
         </Avatar>
-        <Button  className=""
-        >
+        <Button className="flex flex-row w-10 h-10 rounded-[26px] p-2 gap-[10px] bg-white/30">
           <Image
             src="/assets/icons/logout.svg" // <--- هذا هو المسار الصحيح
             alt="Sign Out"
