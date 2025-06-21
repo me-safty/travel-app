@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html>
       <body>
         <Providers>
-        <div className="container mx-auto px-4">{children}</div>
+            {children}
         </Providers>
       </body>
     </html>
