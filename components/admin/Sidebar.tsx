@@ -6,6 +6,7 @@ import { FiMenu } from "react-icons/fi"
 import LogoutButton from "../auth/LogoutButton"
 import { RiHomeLine, RiMapPinLine, RiUserLine } from "react-icons/ri"
 import { usePathname } from "next/navigation"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import Image from "next/image"
 
 type SidebarProps = {
@@ -44,8 +45,8 @@ export default function Sidebar({ name, email, img }: SidebarProps) {
           <Image
             src="/assets/icons/logo.svg"
             alt="Tourvisto Logo"
-            width={20}
-            height={20}
+            width={30}
+            height={30}
           />
           Tourvisto
         </div>
@@ -80,11 +81,17 @@ export default function Sidebar({ name, email, img }: SidebarProps) {
           </nav>
 
           <div className="flex justify-around items-center">
-            <img
-              src={img}
-              alt="profile_img"
-              className="rounded-full w-10"
-            />
+            <Avatar className="w-10 h-10">
+              <AvatarImage src={img} />
+              <AvatarFallback>
+                {name!
+                  .split(" ")
+                  .map((part) => part[0])
+                  .slice(0, 2)
+                  .join("")
+                  .toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
             <div className="flex flex-col justify-center ">
               <div className="font-bold">{name}</div>
               <div className="text-gray-400 w-30 overflow-x-hidden">
