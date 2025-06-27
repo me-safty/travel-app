@@ -18,26 +18,35 @@ export default async function HomePage() {
   return (
     <>
       <div
-        className=" absolute
-    h-[640px]
-    w-full
-    left-0
-    top-0
-    overflow-hidden
-    -z-10
-    bg-cover
+        className="
+        absolute
+        -z-10
+        h-[640px]
+        w-full
+        left-0
+        top-0
+        overflow-hidden
       "
-        // style={{ backgroundImage: "url('/assets/images/hero-img.png')" }}
       >
         <Image
           src="/assets/images/hero-img.png"
-          alt="Background Image"
+          alt="Background Image with Gradient"
           layout="fill"
           objectFit="cover"
           quality={100}
-          className="-z-10"
+          priority
+          className="z-0"
         />
+        <div
+          className="
+          absolute inset-0
+          z-10
+          /* **هنا نغير لون التدرج إلى الأزرق السماوي الفاتح جداً** */
+          bg-[linear-gradient(to_bottom,rgba(224,242,247,0.8)_0%,rgba(224,242,247,0)_100%)]
+        "
+        ></div>
       </div>
+
       <div
         className="container
             mx-auto

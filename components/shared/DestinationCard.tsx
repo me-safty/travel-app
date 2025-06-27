@@ -1,49 +1,55 @@
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import * as React from "react"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
+import { Card } from "@/components/ui/card"
 
-interface DestinationCardProps {
+interface TravelCardProps {
   imageSrc: string
   imageAlt: string
   title: string
-  description: string
+  className?: string
+  height?: string
+  width?: string
+  overlayText?: string
   rating?: number
 }
 
-export function DestinationCard({
+export default function DestinationCard({
   imageSrc,
   imageAlt,
   title,
-  description,
+  overlayText,
   rating,
-}: DestinationCardProps) {
+  width = "w-[270px]",
+  height = "h-[226px]",
+}: TravelCardProps) {
   return (
-    <Card className="relative rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-      <CardContent className="p-0">
-        <div className="relative w-full">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            layout="fill"
-            objectFit="cover"
-            className=""
-          />
+    <Card
+      className={cn(
+        "relative overflow-hidden p-0 rounded-[20px] shadow-md hover:shadow-xl transition-shadow",
+        width
+      )}
+    >
+      <div className={cn("relative w-full", height)}>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-[20px]"
+        />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-
-          {rating && (
-            <div className="absolute top-4 left-4 bg-white text-gray-800 text-sm font-semibold px-2 py-1 rounded-full z-10">
-              {rating}
-            </div>
-          )}
-
-          <div className="absolute bottom-4 left-4 z-10 text-white">
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <div>
-              <span className="text-sm text-gray-700">{description}</span>
-            </div>
+        {rating && (
+          <div className="absolute top-3 left-3 bg-white text-red-500 text-sm font-semibold px-3 py-1 rounded-full shadow-sm">
+            {rating}
           </div>
+        )}
+
+        <div className="absolute bottom-3 left-3 text-white">
+          <h3 className="text-xl font-bold mb-1">{title}</h3>
+          {overlayText && <p className="text-sm opacity-80">{overlayText}</p>}
         </div>
-      </CardContent>
+      </div>
     </Card>
   )
 }

@@ -20,10 +20,6 @@ export default function Footer() {
        w-full flex items-center justify-between mt-[80px] mb-4
       "
     >
-      {/* خلفية متدرجة مع تأثيرات خفيفة */}
-
-      {/* المحتوى الرئيسي للهيدر */}
-      {/* الشعار */}
       <div className="flex items-center space-x-2">
         <Image
           src="/assets/icons/logo.svg"
@@ -45,11 +41,19 @@ export default function Footer() {
         </span>
       </div>
 
-      {/* الجزء الأيمن: Admin Panel, Avatar, Notifications (بدون عداد) */}
-      <div className={`${figtree.className} flex gap-2`}>
-        {/* رابط Admin Panel */}
-        <span>Terms & Condition</span>
-        <span>Privacy Policy</span>
+      <div className="flex space-x-4 text-gray-600 text-sm">
+        <a
+          href="/terms"
+          className="hover:text-gray-900 transition-colors"
+        >
+          Terms and Condition
+        </a>
+        <a
+          href="/privacy"
+          className="hover:text-gray-900 transition-colors"
+        >
+          Privacy Policy
+        </a>
       </div>
     </footer>
   )

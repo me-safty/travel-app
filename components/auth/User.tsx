@@ -7,18 +7,15 @@ interface UserProps {
   userNameClassName?: string
 }
 
-// جعل المكون دالة غير متزامنة
 const User: React.FC<UserProps> = async ({ userNameClassName }) => {
-  // استخدام await لجلب الجلسة
   const session = await getServerSession(authOptions)
 
-  // تحقق مما إذا كانت الجلسة موجودة قبل الوصول إلى خصائصها
   const userName = session?.user?.name || "مستخدم"
   const userImage = session?.user?.image || ""
 
   return (
-    <div className="flex gap-1 space-x-2">
-      <span className={`hidden md:block ${userNameClassName || ""}`}>
+    <div className="flex items-center gap-[24px] space-x-2">
+      <span className={`hidden md:block m-0 ${userNameClassName || ""}`}>
         {userName}
       </span>
       <Avatar className="w-8 h-8">
