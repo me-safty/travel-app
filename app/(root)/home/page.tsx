@@ -41,7 +41,6 @@ export default async function HomePage() {
           className="
           absolute inset-0
           z-10
-          /* **هنا نغير لون التدرج إلى الأزرق السماوي الفاتح جداً** */
           bg-[linear-gradient(to_bottom,rgba(224,242,247,0.8)_0%,rgba(224,242,247,0)_100%)]
         "
         ></div>

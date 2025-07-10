@@ -1,7 +1,20 @@
-import Pagination from "../shared/Pagination"
+"use client"
+
+import { useState } from "react"
 import TravelCard from "../shared/TravelCard"
+import DynamicPagination from "../shared/DynamicPagination"
+import { tripsData } from "@/app/db"
+
+const ITEMS_PER_PAGE = 8
 
 export default function TravelsSection() {
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const endIndex = startIndex + ITEMS_PER_PAGE
+  const currentTrips = tripsData.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(tripsData.length / ITEMS_PER_PAGE)
+
   return (
     <section className="mt-20">
       <div className="mb-8">
@@ -13,87 +26,20 @@ export default function TravelsSection() {
           interests.
         </p>
       </div>
-      <div
-        className="grid
-    justify-items-center
-    grid-cols-1            
-    sm:grid-cols-2         
-    lg:grid-cols-3         
-    xl:grid-cols-4         
-    2xl:grid-cols-4        
-    gap-y-4
-    w-full
-    mb-8"
-      >
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Thornridge Cir. Shiloh"
-          price={500}
-          title="Thornridge Cir. Shiloh"
-          location="St George's Ln Singapore"
-          categories={["Mountains", "City"]}
-        />
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Another Destination"
-          price={250}
-          title="Ronsime Topul"
-          location="Come Parks, Venezuela"
-          categories={["Sea", "Forest", "Budget"]}
-        />
-
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Thornridge Cir. Shiloh"
-          price={300}
-          title="Thornridge Cir. Shiloh"
-          location="St George's Ln Singapore"
-          categories={["Mountains", "City"]}
-        />
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Another Destination"
-          price={250}
-          title="Ronsime Topul"
-          location="Come Parks, Venezuela"
-          categories={["Sea", "Forest", "Budget"]}
-        />
-
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Thornridge Cir. Shiloh"
-          price={300}
-          title="Thornridge Cir. Shiloh"
-          location="St George's Ln Singapore"
-          categories={["Mountains", "City"]}
-        />
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Another Destination"
-          price={250}
-          title="Ronsime Topul"
-          location="Come Parks, Venezuela"
-          categories={["Sea", "Forest", "Budget"]}
-        />
-
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Thornridge Cir. Shiloh"
-          price={300}
-          title="Thornridge Cir. Shiloh"
-          location="St George's Ln Singapore"
-          categories={["Mountains", "City"]}
-        />
-        <TravelCard
-          imageSrc="/assets/images/sample.jpeg"
-          imageAlt="Another Destination"
-          price={250}
-          title="Ronsime Topul"
-          location="Come Parks, Venezuela"
-          categories={["Sea", "Forest", "Budget"]}
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-4 w-full mb-8 items-baseline">
+        {currentTrips.map((trip, index) => (
+          <TravelCard
+            key={index}
+            {...trip}
+          />
+        ))}
       </div>
-      <Pagination />
+
+      <DynamicPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </section>
   )
 }

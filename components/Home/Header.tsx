@@ -9,10 +9,6 @@ export default function Header() {
        pt-[30px] z-50 w-full flex items-center justify-between
       "
     >
-      {/* خلفية متدرجة مع تأثيرات خفيفة */}
-
-      {/* المحتوى الرئيسي للهيدر */}
-      {/* الشعار */}
       <div className="flex items-center space-x-2">
         <Image
           src="/assets/icons/logo.svg"
@@ -26,7 +22,7 @@ export default function Header() {
           text-2xl
           leading-6
           tracking-normal
-          text-[#1F1F3
+          text-[#1F1F36]
         `}
         >
           Tourvisto

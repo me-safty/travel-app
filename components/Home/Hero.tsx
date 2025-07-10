@@ -3,10 +3,10 @@ export default function Hero() {
   return (
     <>
       <div className="mt-[100px] mb-[80px] max-w-[514px]">
-        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-4">
+        <h2 className="font-bold text-[72px] leading-[110px] tracking-[0px] text-[#1F1F36]">
           Plan Your Trip with Ease
         </h2>
-        <p className="text-lg sm:text-xl mb-8">
+        <p className="text-lg sm:text-xl mb-8 text-[#2E2C48]">
           Customize your travel itinerary in minutes—pick your destination, set
           your preferences, and explore with confidence.
         </p>
