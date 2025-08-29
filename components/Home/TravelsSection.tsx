@@ -16,7 +16,7 @@ export default function TravelsSection() {
   const totalPages = Math.ceil(tripsData.length / ITEMS_PER_PAGE)
 
   return (
-    <section className="mt-20">
+    <section className="mt-30">
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">
           Handpicked Trips
@@ -26,7 +26,7 @@ export default function TravelsSection() {
           interests.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-4 w-full mb-8 items-baseline">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full pb-8 items-baseline border-b border-gray-200">
         {currentTrips.map((trip, index) => (
           <TravelCard
             key={index}
@@ -34,11 +34,11 @@ export default function TravelsSection() {
           />
         ))}
       </div>
-
       <DynamicPagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={(page) => setCurrentPage(page)}
+        onPageChange={(page) => setCurrentPage(page)
+        }
       />
     </section>
   )

@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer
       className="
-       w-full flex items-center justify-between mt-[80px] mb-4
+       w-full flex items-center justify-between mt-30 mb-4
       "
     >
       <div className="flex items-center space-x-2">
@@ -46,7 +46,7 @@ export default function Footer() {
           href="/terms"
           className="hover:text-gray-900 transition-colors"
         >
-          Terms and Condition
+          Terms & Condition
         </a>
         <a
           href="/privacy"

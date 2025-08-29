@@ -33,7 +33,7 @@ export default function Header() {
         <User userNameClassName="text-white" />
         <LogoutButton
           url="/login"
-          className="bg-white/30 p-2 rounded-full shadow"
+          className="bg-white/30 p-2 rounded-full shadow cursor-pointer"
         />
       </div>
     </header>

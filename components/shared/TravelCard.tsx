@@ -29,7 +29,7 @@ export default function TravleCard({
   return (
     <Card
       className={cn(
-        "relative justify-between overflow-hidden p-0 w-[270px] rounded-[20px] shadow-md hover:shadow-xl transition-shadow",
+        "relative justify-between overflow-hidden p-0 rounded-[20px] shadow-md hover:shadow-xl transition-shadow",
         className
       )}
     >

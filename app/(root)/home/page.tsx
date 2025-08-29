@@ -37,13 +37,8 @@ export default async function HomePage() {
           priority
           className="z-0"
         />
-        <div
-          className="
-          absolute inset-0
-          z-10
-          bg-[linear-gradient(to_bottom,rgba(224,242,247,0.8)_0%,rgba(224,242,247,0)_100%)]
-        "
-        ></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#cff1ffcc] to-[#ffffff00]"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#CFF1FF]/80 to-transparent"></div>
       </div>
 
       <div

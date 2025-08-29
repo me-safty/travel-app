@@ -23,7 +23,7 @@ const User: React.FC<UserProps> = async ({ userNameClassName }) => {
           src={userImage}
           alt={`صورة ${userName}`}
         />
-        <AvatarFallback>{userName.charAt(0).toUpperCase()}</AvatarFallback>
+        <AvatarFallback className="select-none focus:outline-none">{userName.charAt(0).toUpperCase()}</AvatarFallback>
       </Avatar>
     </div>
   )

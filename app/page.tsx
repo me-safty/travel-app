@@ -17,3 +17,13 @@ export default async function Home() {
     </>
   );
 }
+
+// const name  = "beac"
+//   slots[name]
+
+// const slots = {
+//   beac: {
+//     color: "#f00",
+//     semincolor: "#f00000"
+//   }
+// }
